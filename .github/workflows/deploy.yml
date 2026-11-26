@@ -1,0 +1,54 @@
+# Publication automatique du portfolio sur GitHub Pages.
+# À chaque modification envoyée sur la branche "main", GitHub :
+#   1. installe PHP,
+#   2. transforme index.php en page HTML (dossier _site),
+#   3. met le site en ligne.
+# Rien à faire de ton côté : modifie, enregistre, et le site se met à jour.
+
+name: Publier le portfolio
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # bouton « Run workflow » pour relancer à la main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Générer le site HTML
+        run: |
+          mkdir -p _site
+          php index.php > _site/index.html
+          cp -r assets _site/
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
