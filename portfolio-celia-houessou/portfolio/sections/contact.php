@@ -20,8 +20,11 @@
         </div>
 
         <?php
-            $useFormSubmit = ($ct['form_service'] ?? 'php') === 'formsubmit';
-            $formAction = $useFormSubmit ? 'https://formsubmit.co/ajax/' . $ct['form_to'] : 'contact.php';
+            $service = $ct['form_service'] ?? 'php';
+            $useFormSubmit = $service === 'formsubmit';
+            $useWeb3 = $service === 'web3forms';
+            $formAction = $useFormSubmit ? 'https://formsubmit.co/ajax/' . $ct['form_to']
+                        : ($useWeb3 ? 'https://api.web3forms.com/submit' : 'contact.php');
         ?>
         <form class="form reveal" action="<?= e($formAction) ?>" method="post" novalidate>
             <?php if ($useFormSubmit): ?>
@@ -29,11 +32,17 @@
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
             <?php endif; ?>
+            <?php if ($useWeb3): ?>
+                <input type="hidden" name="access_key" value="<?= e($ct['web3forms_key'] ?? '') ?>">
+                <input type="hidden" name="subject" value="Nouveau message depuis ton portfolio">
+                <input type="hidden" name="from_name" value="Portfolio Célia Houessou">
+                <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <?php endif; ?>
             <div class="form__row">
                 <label class="field"><input type="text" name="name" required placeholder=" " autocomplete="name"><span>Nom</span></label>
                 <label class="field"><input type="email" name="email" required placeholder=" " autocomplete="email"><span>E-mail</span></label>
             </div>
-            <label class="field"><input type="text" name="subject" placeholder=" "><span>Sujet (alternance, stage, projet…)</span></label>
+            <label class="field"><input type="text" name="sujet" placeholder=" "><span>Sujet (alternance, stage, projet…)</span></label>
             <label class="field"><textarea name="message" rows="5" required placeholder=" "></textarea><span>Votre message</span></label>
             <!-- Champ piège anti-spam : ne pas supprimer -->
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
