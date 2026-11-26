@@ -300,7 +300,7 @@ return [
                     'items' => ['ecommerce-laptop.jpg', 'ecommerce-pages-1.jpg', 'ecommerce-pages-2.jpg', 'ecommerce-dashboard.jpg'],
                     // Boutons du projet : un lien vide ('') n'est pas affiché
                     'links' => [
-                        ['label' => 'Voir le site', 'url' => '', 'icon' => 'external'],
+                        ['label' => 'Voir le site', 'url' => 'https://beautyadress.infinityfreeapp.com', 'icon' => 'external'],
                         ['label' => 'Voir le code', 'url' => 'https://github.com/celiahouessou-star/beauty-adress', 'icon' => 'github'],
                     ],
                 ],
