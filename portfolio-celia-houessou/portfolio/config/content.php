@@ -342,6 +342,7 @@ return [
          *                  « FormSubmit » : il faut cliquer sur le lien pour l'activer.
          *   'php'        : utilise contact.php (seulement chez un hébergeur PHP).
          */
-        'form_service' => 'formsubmit',
+        'form_service'   => 'web3forms', // 'web3forms', 'formsubmit' ou 'php'
+        'web3forms_key'  => 'df877d05-d1df-46d2-82c2-c4e5409ad270', // clé reçue sur web3forms.com
     ],
 ];
