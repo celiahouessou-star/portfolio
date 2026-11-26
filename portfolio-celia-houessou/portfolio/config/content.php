@@ -195,6 +195,13 @@ return [
                 'Client'  => 'ONFEKOA — plateforme de réservation d’activités de loisirs, de détente et de découverte au Bénin',
                 'Mission' => 'Identité visuelle et supports digitaux',
             ],
+            // Boutons affichés sous la description (laisser vide [] pour aucun)
+            'links'   => [
+                ['label' => 'Voir le site',  'url' => 'https://onfekoa.com', 'icon' => 'external'],
+                ['label' => 'Instagram',     'url' => 'https://www.instagram.com/onfekoa_officiel', 'icon' => 'instagram'],
+                ['label' => 'TikTok',        'url' => 'https://www.tiktok.com/@onfekoa_officiel', 'icon' => 'tiktok'],
+                ['label' => 'App Store',     'url' => 'https://apps.apple.com/app/onfekoa/id6757412688', 'icon' => 'phone-app'],
+            ],
             'intro'   => 'ONFEKOA a souhaité que nous établissions ensemble son identité visuelle ainsi que d’autres supports digitaux. La présentation qui suit n’est qu’une liste non exhaustive de mon travail.',
             'cover'   => ['onfekoa-mobile.jpg', 'onfekoa-laptop.jpg'],
             'blocks'  => [
@@ -281,6 +288,9 @@ return [
                     'title' => 'Projet web design — Soothe & Care',
                     'text'  => 'Conception d’un logo et de l’interface d’un site web dédié au bien-être et au soin du corps : page d’accueil présentant les articles, page « À propos » et page de contact. L’ensemble vise à transmettre une sensation de sérénité, de simplicité et d’équilibre.',
                     'items' => ['soothe-interface.jpg', 'soothe-logo.jpg'],
+                    'links' => [
+                        ['label' => 'Voir le prototype Figma', 'url' => '', 'icon' => 'figma'],
+                    ],
                     'layout'=> 'split',
                 ],
                 [
@@ -288,6 +298,11 @@ return [
                     'title' => 'Projet développement web — Beauty Adress',
                     'text'  => 'Conception et développement d’un site e-commerce dédié à la vente de produits et accessoires capillaires. Le projet comprend la création de l’interface utilisateur ainsi que le développement du site avec un dashboard, afin d’offrir une expérience d’achat fluide et intuitive.',
                     'items' => ['ecommerce-laptop.jpg', 'ecommerce-pages-1.jpg', 'ecommerce-pages-2.jpg', 'ecommerce-dashboard.jpg'],
+                    // Boutons du projet : un lien vide ('') n'est pas affiché
+                    'links' => [
+                        ['label' => 'Voir le site', 'url' => '', 'icon' => 'external'],
+                        ['label' => 'Voir le code', 'url' => 'https://github.com/celiahouessou-star/beauty-adress', 'icon' => 'github'],
+                    ],
                 ],
             ],
         ],
@@ -301,6 +316,10 @@ return [
             'meta'    => [
                 'Cadre' => 'Projet universitaire — mobilité intelligente',
                 'Rôle'  => 'Identité visuelle, logo, direction artistique, UI/UX',
+            ],
+            'links'   => [
+                ['label' => 'Voir le site', 'url' => 'https://celiahouessou-star.github.io/site-mouvprint/', 'icon' => 'external'],
+                ['label' => 'Voir le code', 'url' => 'https://github.com/celiahouessou-star/site-mouvprint', 'icon' => 'github'],
             ],
             'intro'   => 'MOUV’PRINT permet aux utilisateurs d’explorer la ville au passé, au présent et au futur grâce à des lunettes connectées, à travers la réalité augmentée et une expérience immersive. J’ai conçu l’identité visuelle complète, dont le logo, ainsi que le design de l’interface web : direction artistique, choix des couleurs, hiérarchie visuelle, expérience utilisateur et univers graphique, afin de traduire l’innovation, l’immersion et la projection dans le temps.',
             'cover'   => ['mouvprint-ecran.jpg'],
