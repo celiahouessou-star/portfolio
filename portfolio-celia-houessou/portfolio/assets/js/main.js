@@ -303,7 +303,7 @@
                 const data = await res.json();
                 // Réponse de contact.php ({success: true}) ou de FormSubmit ({success: "true"})
                 const ok = data.success === true || data.success === 'true';
-                const isFormSubmit = form.action.includes('formsubmit.co');
+                const isFormSubmit = !form.action.endsWith('contact.php'); // service externe : messages en français
                 const msg = ok
                     ? (isFormSubmit ? 'Merci ! Votre message a bien été envoyé, je vous réponds très vite.' : data.message)
                     : (isFormSubmit ? 'Le message n’a pas pu être envoyé. Écrivez-moi directement par e-mail.' : data.message);
