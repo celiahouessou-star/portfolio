@@ -33,9 +33,12 @@ jobs:
 
       - name: Générer le site HTML
         run: |
+          # Trouve automatiquement le dossier qui contient index.php
+          SITE_DIR=$(dirname "$(find . -name index.php -not -path './_site/*' | head -n 1)")
+          echo "Dossier du site : $SITE_DIR"
           mkdir -p _site
-          php index.php > _site/index.html
-          cp -r assets _site/
+          (cd "$SITE_DIR" && php index.php) > _site/index.html
+          cp -r "$SITE_DIR/assets" _site/
           touch _site/.nojekyll
 
       - uses: actions/configure-pages@v5
