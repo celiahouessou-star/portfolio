@@ -36,6 +36,7 @@
         </header>
 
         <p class="project__intro reveal"><?= e($pr['intro']) ?></p>
+        <?= project_links($pr['links'] ?? []) ?>
 
         <!-- Image(s) de couverture -->
         <div class="project__cover project__cover--<?= count($pr['cover']) ?> reveal">
@@ -123,6 +124,7 @@
                     <div class="showcase__head">
                         <h3 class="block__title reveal"><?= e($b['title']) ?></h3>
                         <?php if (!empty($b['text'])): ?><p class="reveal"><?= e($b['text']) ?></p><?php endif; ?>
+                        <?= project_links($b['links'] ?? []) ?>
                     </div>
                     <div class="showcase__items">
                         <?php foreach ($b['items'] as $img): ?>
