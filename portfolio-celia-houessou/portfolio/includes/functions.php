@@ -52,6 +52,19 @@ function eyebrow(int $n, string $label = ''): string
     return '<p class="eyebrow reveal"><span>' . num($n) . '</span>' . ($label !== '' ? e($label) : '') . '</p>';
 }
 
+/** Boutons de liens d'un projet (Voir le site, Voir le code, réseaux…). */
+function project_links(array $links): string
+{
+    $links = array_filter($links, fn($l) => !empty($l['url']));
+    if (!$links) return '';
+    $html = '<ul class="links reveal">';
+    foreach ($links as $l) {
+        $html .= '<li><a class="link-btn" href="' . e($l['url']) . '" target="_blank" rel="noopener">'
+              . icon($l['icon'] ?? 'external') . '<span>' . e($l['label']) . '</span></a></li>';
+    }
+    return $html . '</ul>';
+}
+
 /** Forme organique (feuille découpée) reprise du PDF. */
 function leaf(string $class = ''): string
 {
@@ -75,6 +88,11 @@ function icon(string $name): string
         'ai'      => '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
         'system'  => '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="3.5"/><rect x="3" y="14" width="7" height="7" rx="3.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
         'access'  => '<circle cx="12" cy="4.5" r="1.8"/><path d="M4 8.5l8 1.5 8-1.5M12 10v4.5l-3 6.5M12 14.5l3 6.5"/>',
+        'external'  => '<path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/>',
+        'github'    => '<path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/>',
+        'instagram' => '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8"/>',
+        'tiktok'    => '<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.4 2.6 2.2 4.4 5 4.6"/>',
+        'phone-app' => '<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
         'arrow'   => '<path d="M5 12h14M13 6l6 6-6 6"/>',
         'mail'    => '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',
         'phone'   => '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
