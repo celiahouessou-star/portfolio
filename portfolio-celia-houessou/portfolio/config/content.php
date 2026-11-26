@@ -289,7 +289,7 @@ return [
                     'text'  => 'Conception d’un logo et de l’interface d’un site web dédié au bien-être et au soin du corps : page d’accueil présentant les articles, page « À propos » et page de contact. L’ensemble vise à transmettre une sensation de sérénité, de simplicité et d’équilibre.',
                     'items' => ['soothe-interface.jpg', 'soothe-logo.jpg'],
                     'links' => [
-                        ['label' => 'Voir le prototype Figma', 'url' => '', 'icon' => 'figma'],
+                        ['label' => 'Voir le prototype Figma', 'url' => 'https://www.figma.com/design/svVBkYOYmrwXMTfLtolkFz/Soothe---Care?node-id=0-1', 'icon' => 'figma'],
                     ],
                     'layout'=> 'split',
                 ],
