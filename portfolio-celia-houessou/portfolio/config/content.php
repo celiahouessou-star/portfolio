@@ -34,11 +34,11 @@ return [
         'tagline'    => 'Pour des marques en quête de sens.',
         'email'      => 'celiahouessou@gmail.com',
         'phone'      => '06 12 79 91 98',
-        'location'   => 'Montbéliard, France',
+        'location'   => 'Île-de-France, France',
         'status'     => 'Disponible pour une alternance ou un stage',
         // Laisser vide ('') pour masquer un réseau
         'socials'    => [
-            'LinkedIn'  => '',
+            'LinkedIn'  => 'https://www.linkedin.com/in/c%C3%A9lia-houessou-b11a28265',
             'Behance'   => '',
             'Instagram' => '',
         ],
