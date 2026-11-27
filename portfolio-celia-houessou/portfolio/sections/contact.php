@@ -12,6 +12,7 @@
                     <li><a href="tel:<?= e(preg_replace('/\s+/', '', $p['phone'])) ?>"><?= icon('phone') ?><?= e($p['phone']) ?></a></li>
                     <li><a href="mailto:<?= e($p['email']) ?>" data-copy="<?= e($p['email']) ?>"><?= icon('mail') ?><?= e($p['email']) ?></a></li>
                     <li><span><?= icon('pin') ?><?= e($p['location']) ?></span></li>
+                    <?php if (!empty($p['socials']['LinkedIn'])): ?><li><a href="<?= e($p['socials']['LinkedIn']) ?>" target="_blank" rel="noopener"><?= icon('linkedin') ?>LinkedIn</a></li><?php endif; ?>
                 </ul>
                 <?php if (!empty($p['cv'])): ?>
                     <a class="btn btn--light" href="<?= e($p['cv']) ?>" download>Télécharger mon CV</a>
